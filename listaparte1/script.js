@@ -1,9 +1,7 @@
-// SCRIPT.JS
-
 // Operadores Aritméticos
 // 1 - Área de um Retângulo
-let largura = 5
-let altura = 10
+let largura = Number(prompt("Digite a largura:"))
+let altura = Number(prompt("Digite a altura:"))
 let area = largura * altura
 console.log("Área:", area)
 
@@ -36,85 +34,121 @@ console.log("Idoso:", idade >= 60)
 
 // Estrutura Condicional - if else
 // 1 - Verificação de Maioridade
-function verificarIdade(idade) {
-  if (idade >= 18) console.log("Você é maior de idade")
-  else console.log("Você é menor de idade")
+let idade1 = Number(prompt("Qual a sua idade?"))
+if (idade1 >= 18) {
+    console.log("Você é maior de idade")
+} else {
+    console.log("Você é menor de idade")
 }
 
 // 2 - Verificação de Aprovado
-function verificarNota(nota) {
-  if (nota >= 7) console.log("Aprovado")
-  else console.log("Reprovado")
+let nota = Number(prompt("Qual sua nota?"))
+if (nota >= 7) {
+    console.log("Aprovado")
+} else {
+    console.log("Reprovado")
 }
 
 // 3 - Verificar Temperatura
-function verificarTemperatura(temp) {
-  if (temp > 30) console.log("Está quente")
-  else console.log("Está frio")
+let temp = Number(prompt("Qual a temperatura hoje?"))
+if (temp >= 30) {
+  console.log("Está quente")
+} else {
+  console.log("Está frio")
 }
 
+
 // 4 - Classificação de Idade
-function classificarIdade(idade) {
-  if (idade < 12) console.log("Criança")
-  else if (idade < 17) console.log("Adolescente")
-  else if (idade < 59) console.log("Adulto")
-  else console.log("Idoso")
+let idadep = Number(prompt("Qual a sua idade?"))
+if (idadep < 12) {
+  console.log("Criança")
+} else if (idadep < 17){
+  console.log("Adolescente")
+} else if (idadep < 59){
+  console.log("Adulto")
+} else {
+  console.log("Idoso")
 }
 
 // 5 - Sistema de Notas Escolares
-function notaLetra(nota) {
-  if (nota > 90) console.log("A")
-  else if (nota > 80) console.log("B")
-  else if (nota > 70) console.log("C")
-  else if (nota > 60) console.log("D")
-  else console.log("F")
+let notas = Number(prompt("Qual a sua nota?"))
+if (notas > 90) {
+  console.log("A")
+} else if (notas > 80){
+  console.log("B")
+} else if (notas > 70){
+  console.log("C")
+} else if (notas > 60){
+  console.log("D")
+} else {
+  console.log("F")
 }
 
 // 6 - Classificação de Pistas
-function classificarPista(distancia) {
-  if (distancia < 400) console.log("Pista curta")
-  else if (distancia < 800) console.log("Pista média")
-  else if (distancia < 1500) console.log("Pista longa")
-  else console.log("Pista muito longa")
+let distancia = Number(prompt("Qual a distância da pista de corrida em metros?"))
+if (distancia < 400) {
+  console.log("Pista curta")
+} else if (distancia < 800){
+  console.log("Pista média")
+} else if (distancia < 1500){
+  console.log("Pista longa")
+} else {
+  console.log("Pista muito longa")
 }
 
 // 7 - Pontuação de Jogo
-function classificarJogador(pontos) {
-  if (pontos < 1000) console.log("Iniciante")
-  else if (pontos < 5000) console.log("Intermediário")
-  else if (pontos < 10000) console.log("Avançado")
-  else console.log("Mestre")
+let pontos = Number(prompt("Qual a sua pontuação?"))
+if (pontos < 1000){
+  console.log("Iniciante")
+} else if (pontos < 5000){
+  console.log("Intermediário")
+} else if (pontos < 10000){ 
+  console.log("Avançado")
+} else {
+  console.log("Mestre")
 }
+
 
 // Operadores Lógicos
-// 1 - Promoção
-function verificarPromocao(anos, projetos) {
-  if (anos >= 5 || projetos > 10) console.log("Você está elegível para promoção")
-  else console.log("Você não está elegível")
+// 1 - Elegível para Promoção
+let anosTrabalho = Number(prompt("Quantos anos você trabalha na empresa?"))
+let projetos = Number(prompt("Quantos projetos você realizou?"))
+if (anosTrabalho >= 5 || projetos > 10) {
+    console.log("Você está elegível para promoção")
+} else {
+    console.log("Você não está elegível para promoção")
 }
 
-// 2 - Evento
-function podeEntrar(idade) {
-  if (idade >= 18 && idade <= 30) console.log("Pode entrar")
-  else console.log("Não pode entrar")
+// 2 - Entrar em um Evento
+let idad = Number(prompt("Qual a sua idade?"))
+if (idad >= 18 && idad <= 30) {
+    console.log("Você pode entrar no evento")
+} else {
+    console.log("Você não pode entrar no evento")
 }
 
-// 3 - Login
-function verificarLogin(usuario, senha) {
-  if (usuario === "admin" && senha === "1234") console.log("Login bem-sucedido")
-  else console.log("Usuário ou senha incorretos")
+// 3 - Verificação de Login Avançada
+let usuario = prompt("Digite o nome de usuário:")
+let senha1 = Number(prompt("Digite a senha:"))
+if (usuario === "admin" && senha1 === "1234") {
+    console.log("Login bem-sucedido")
+} else {
+    console.log("Nome de usuário ou senha incorretos")
 }
 
-// 4 - Intervalos
-function verificarIntervalo(n) {
-  if (n >= 10 && n <= 20) console.log("Entre 10 e 20")
-  else if (n >= 30 && n <= 50) console.log("Entre 30 e 50")
-  else console.log("Fora dos intervalos")
+// 4 - Intervalo de Valores
+let num = Number(prompt("Digite um número:"))
+if (num >= 10 && num <= 20) {
+    console.log("O número está dentro do intervalo entre 10 e 20")
+} else if (num >= 30 && num <= 50) {
+    console.log("O número está dentro do intervalo entre 30 e 50")
+} else {
+    console.log("Ele não está dentro do intervalo de 10 e 20 nem 30 e 50")
 }
 
 // Switch Case
 // 1 - Dias da Semana
-let dia = 3
+let dia = Number(prompt("Digite um número de 1 a 7:"))
 switch (dia) {
   case 1: console.log("Domingo"); break
   case 2: console.log("Segunda-feira"); break
@@ -127,7 +161,7 @@ switch (dia) {
 }
 
 // 2 - Classificação Idade
-let idadeEsportiva = 15
+let idadeEsportiva = Number(prompt("Digite uma idade:"))
 switch (idadeEsportiva) {
   case 5: console.log("Infantil A"); break
   case 10: console.log("Infantil B"); break
@@ -138,7 +172,7 @@ switch (idadeEsportiva) {
 }
 
 // 3 - Turno de Trabalho
-let turno = "V"
+let turno = prompt("Informe seu turno:")
 switch (turno) {
   case "M": console.log("Bom dia!"); break
   case "V": console.log("Boa tarde!"); break
@@ -147,7 +181,7 @@ switch (turno) {
 }
 
 // 4 - Estações do Ano
-let estacao = 4
+let estacao = Number(prompt("Informe um número de 1 a 4:"))
 switch(estacao) {
   case 1: console.log("Primavera"); break
   case 2: console.log("Verão"); break
@@ -157,16 +191,16 @@ switch(estacao) {
 }
 
 // While
-let i = 1
-while(i <= 10) {
-  console.log(i)
-  i++
+let contador = 1
+while(contador <= 10) {
+  console.log(contador)
+  contador++
 }
 
-let j = 10
-while(j >= 1) {
-  console.log(j)
-  j--
+let regressiva = 10
+while(regressiva >= 1) {
+  console.log(regressiva)
+  regressiva--
 }
 
 let senha = ""
@@ -174,10 +208,10 @@ while(senha !== "12345") {
   senha = prompt("Digite a senha: ")
 }
 
-let k = 0
-while(k <= 100) {
-  console.log(k)
-  k += 5
+let sequencia = 0
+while(sequencia <= 100) {
+  console.log(sequencia)
+  sequencia += 5
 }
 
 let cont = 0
@@ -187,11 +221,11 @@ while(cont < 5) {
 }
 
 // Do...While
-let dw = 1
+let contador1 = 1
 do {
-  console.log(dw)
-  dw++
-} while(dw <= 20)
+  console.log(contador1)
+  contador1++
+} while(contador1 <= 20)
 
 let continuar
 do {
@@ -212,37 +246,37 @@ do {
 } while (par <= 31)
 
 // For
-for (let f = 1; f <= 30; f++) {
-  console.log(f)
+for (let c = 1; c <= 30; c++) {
+  console.log(c)
 }
 
-for (let f = 30; f >= 1; f--) {
-  console.log(f)
+for (let r = 30; r >= 1; r--) {
+  console.log(r)
 }
 
 let inicio = 10
 let fim = 20
-for (let f = inicio; f <= fim; f++) {
-  console.log(f)
+for (let p = inicio; p <= fim; p++) {
+  console.log(p)
 }
 
-for (let f = 50; f >= 30; f--) {
-  console.log(f)
+for (let s = 50; s >= 30; s--) {
+  console.log(s)
 }
 
-for (let f = 1; f <= 50; f += 2) {
-  console.log(f)
+for (let n = 1; n <= 50; n += 2) {
+  console.log(n)
 }
 
 // Array
-let filmes = ["Crepusculo", "Gato de botas", "As branquelas"]
+let filmes = ["Harry Potter e a Pedra Filosofal", "Jurassic World: Domínio", "De Repente Uma Família"]
 console.log(filmes[0])
 
-let frutas = ["maçã", "banana", "laranja", "uva", "maracujá"]
+let frutas = ["maçã", "banana", "laranja", "uva", "melancia"]
 console.log(frutas[2])
 
-let cores = ["roxo", "amarelo", "preto"]
-cores.push("branco")
+let cores = ["azul", "vermelho", "verde"]
+cores.push("amarelo")
 for (let i = 0; i < cores.length; i++) {
   console.log(cores[i])
 }
