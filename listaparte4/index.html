@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Desenhos</title>
+    <style>
+        canvas { border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+        <canvas id="meuCanvas" width="500" height="300" style="border: 5px solid black;"></canvas>
+    <script>
+        const canvas = document.getElementById('meuCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // 1 - Quadrado verde
+        ctx.fillStyle = 'green';
+        ctx.fillRect(20, 20, 100, 100);
+
+        // 2 - Círculo vermelho
+        ctx.beginPath();
+        ctx.arc(200, 70, 50, 0, Math.PI * 2);
+        ctx.fillStyle = 'red';
+        ctx.fill();
+
+        // 3 - Apagar parte do quadrado
+        ctx.clearRect(50, 50, 40, 40);
+
+        // 4.1 - Carinha feliz
+        // Cabeça
+        ctx.beginPath();
+        ctx.arc(400, 80, 50, 0, Math.PI * 2);
+        ctx.fillStyle = '#FFD966';
+        ctx.fill();
+
+
+        // Olhos
+        ctx.beginPath();
+        ctx.arc(385, 70, 7, 0, Math.PI * 2);
+        ctx.arc(415, 70, 7, 0, Math.PI * 2);
+        ctx.fillStyle = '#333';
+        ctx.fill();
+
+        // Boca
+        ctx.beginPath();
+        ctx.arc(400, 90, 25, 0, Math.PI, false);
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = '#333';
+        ctx.stroke();
+
+        // 4.2 - Casa simples
+        // Base
+        ctx.fillStyle = '#8ED6FF';
+        ctx.fillRect(80, 200, 100, 80);
+
+        // Telhado
+        ctx.beginPath();
+        ctx.moveTo(80, 200);
+        ctx.lineTo(130, 150);
+        ctx.lineTo(180, 200);
+        ctx.closePath();
+        ctx.fillStyle = '#FF5733';
+        ctx.fill();
+
+        // Porta
+        ctx.fillStyle = '#A0522D';
+        ctx.fillRect(120, 240, 30, 40);
+
+        // 4.3 - Bandeira do Brasil 
+        // Fundo verde
+        ctx.fillStyle = '#009739';
+        ctx.fillRect(300, 200, 120, 80);
+
+        // Losango amarelo
+        ctx.beginPath();
+        ctx.moveTo(360, 200);
+        ctx.lineTo(420, 240);
+        ctx.lineTo(360, 280);
+        ctx.lineTo(300, 240);
+        ctx.closePath();
+        ctx.fillStyle = '#FFCC29';
+        ctx.fill();
+
+        // Círculo azul
+        ctx.beginPath();
+        ctx.arc(360, 240, 25, 0, Math.PI * 2);
+        ctx.fillStyle = '#3E4095';
+        ctx.fill();
+    </script>
+</body>
+</html>
