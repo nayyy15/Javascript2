@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Muse Dash Interativo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f7f7fa; text-align: center; }
+        h1 { color: #ff4da6; }
+        h2 { margin-top: 40px; color: #333; }
+        .banner, .banner3 { width: 100%; max-width: 800px; margin: 20px auto; display: block; border-radius: 12px; }
+        .lampada { width: 120px; cursor: pointer; display: block; margin: 20px auto; }
+        .perfil { width: 120px; border-radius: 50%; display: block; margin: 20px auto; }
+        .galeria { display: flex; gap: 10px; justify-content: center; margin: 20px 0; }
+        .galeria img { width: 80px; cursor: pointer; border: 2px solid #ccc; border-radius: 8px; }
+        .imagem-grande { display: block; margin: 0 auto 20px auto; max-width: 400px; border-radius: 12px; }
+        .carrossel { text-align: center; margin: 30px 0; }
+        .carrossel img { max-width: 350px; border-radius: 12px; }
+        .carrossel button { margin: 0 10px; padding: 8px 16px; font-size: 16px; border: none; border-radius: 8px; background: #ff4da6; color: white; cursor: pointer; }
+        .carrossel button:hover { background: #e63b94; }
+        .btn { display: block; margin: 20px auto; padding: 10px 20px; font-size: 16px; border: none; border-radius: 8px; background: #ff4da6; color: white; cursor: pointer; }
+        .btn:hover { background: #e63b94; }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Troca de Banner Automática -->
+    <h2>1. Banner Responsivo</h2>
+    <img id="banner" class="banner" src="" alt="Banner Muse Dash">
+
+    <!-- 2. Troca de Imagem ao Clicar -->
+    <h2>2. Lâmpada Interativa</h2>
+    <img id="lampada" class="lampada" src="img/apagado.png" alt="Lâmpada Apagada">
+
+    <!-- 3. Mostrar/Esconder Imagem com Botão -->
+    <h2>3. Mostrar/Esconder Imagem</h2>
+    <button id="toggleBtn" class="btn">Mostrar/Esconder</button>
+    <img id="toggleImg" src="img/marija.jpg" alt="Muse Dash" style="display:none; max-width:200px; margin:auto;">
+
+    <!-- 4. Troca de Foto de Perfil -->
+    <h2>4. Troca de Foto de Perfil</h2>
+    <img id="perfil" class="perfil" src="img/rin.jpg" alt="Perfil Padrão">
+    <button id="trocarPerfil" class="btn">Trocar Foto</button>
+
+    <!-- 5. Galeria com Clique -->
+    <h2>5. Galeria Muse Dash</h2>
+    <img id="imagemGrande" class="imagem-grande" src="img/banner.jpg" alt="Muse Dash Grande">
+    <div class="galeria">
+        <img src="img/banner.jpg" alt="Muse Dash 1" data-grande="img/banner.jpg">
+        <img src="img/banner2.jpg" alt="Muse Dash 2" data-grande="img/banner2.jpg">
+        <img src="img/banner3.jpg" alt="Muse Dash 3" data-grande="img/banner3.jpg">
+    </div>
+
+    <!-- 6. Banner com 3 Versões -->
+    <h2>6. Banner 3 Versões</h2>
+    <img id="banner3" class="banner3" src="" alt="Banner Responsivo Muse Dash">
+
+    <!-- 7. Carrossel Simples -->
+    <h2>7. Carrossel Muse Dash</h2>
+    <div class="carrossel">
+        <button id="anterior">Anterior</button>
+        <img id="carrosselImg" src="" alt="Muse Dash Carrossel">
+        <button id="proxima">Próxima</button>
+    </div>
+
+    <script>
+        // 1. Troca de Banner Automática
+        function setBanner() {
+            const banner = document.getElementById('banner');
+            if (window.innerWidth < 600) {
+                banner.src = 'img/banner8.jpg'; // mobile
+            } else {
+                banner.src = 'img/banner9.jpg'; // desktop
+            }
+        }
+        setBanner();
+        window.addEventListener('resize', setBanner);
+
+        // 2. Troca de Imagem ao Clicar
+        const lampada = document.getElementById('lampada');
+        let lampadaAcesa = false;
+        lampada.addEventListener('click', () => {
+            lampadaAcesa = !lampadaAcesa;
+            lampada.src = lampadaAcesa
+                ? 'img/aceso.png' // acesa
+                : 'img/apagado.png'; // apagada
+        });
+
+        // 3. Mostrar/Esconder Imagem com Botão
+        const toggleBtn = document.getElementById('toggleBtn');
+        const toggleImg = document.getElementById('toggleImg');
+        toggleBtn.addEventListener('click', () => {
+            toggleImg.style.display = toggleImg.style.display === 'none' ? 'block' : 'none';
+        });
+
+        // 4. Troca de Foto de Perfil
+        const perfil = document.getElementById('perfil');
+        const trocarPerfil = document.getElementById('trocarPerfil');
+        let perfilPadrao = true;
+        trocarPerfil.addEventListener('click', () => {
+            perfilPadrao = !perfilPadrao;
+            perfil.src = perfilPadrao
+                ? 'img/rin.jpg'
+                : 'img/miku.jpg';
+        });
+
+        // 5. Galeria com Clique
+        const imagemGrande = document.getElementById('imagemGrande');
+        document.querySelectorAll('.galeria img').forEach(img => {
+            img.addEventListener('click', () => {
+                imagemGrande.src = img.dataset.grande;
+            });
+        });
+
+        // 6. Banner com 3 Versões
+        function setBanner3() {
+            const banner3 = document.getElementById('banner3');
+            if (window.innerWidth < 600) {
+                banner3.src = 'img/banner7.jpg'; // mobile
+            } else if (window.innerWidth < 1024) {
+                banner3.src = 'img/banner10.jpg'; // tablet
+            } else {
+                banner3.src = 'img/banner11.jpg'; // desktop
+            }
+        }
+        setBanner3();
+        window.addEventListener('resize', setBanner3);
+
+        // 7. Carrossel Simples
+        const carrosselImgs = [
+            'img/banner4.jpg',
+            'img/banner5.jpg',
+            'img/banner6.jpg'
+        ];
+        let carrosselIndex = 0;
+        const carrosselImg = document.getElementById('carrosselImg');
+
+        function atualizarCarrossel() {
+            carrosselImg.src = carrosselImgs[carrosselIndex];
+        }
+
+        document.getElementById('anterior').onclick = () => {
+            carrosselIndex = (carrosselIndex - 1 + carrosselImgs.length) % carrosselImgs.length;
+            atualizarCarrossel();
+        };
+
+        document.getElementById('proxima').onclick = () => {
+            carrosselIndex = (carrosselIndex + 1) % carrosselImgs.length;
+            atualizarCarrossel();
+        };
+        atualizarCarrossel();
+    </script>
+</body>
+</html>

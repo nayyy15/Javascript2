@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>O banner vai trocar</h1>
+    <img id="banner" src="Muse Dash Loading Screen.jpg" alt="" >
+
+    <script>
+        const banner = document.getElementById('banner')
+        function trocaimg() {
+            if(window.innerWidth < 600){
+                banner.src = "MuseDash.jpg"
+            } else {
+                banner.src = "Muse Dash Loading Screen.jpg"
+            }
+        }
+        trocaimg() // executa a função 
+        window.addEventListener('resize', trocaimg) // toda vez que a tela for redimensionada, executa a função
+    </script>
+
+</body>
+</html>
